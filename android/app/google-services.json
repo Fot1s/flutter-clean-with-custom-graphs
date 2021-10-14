@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "386203044031",
+    "project_id": "lab-coffee-and-drinks",
+    "storage_bucket": "lab-coffee-and-drinks.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:386203044031:android:e4046c931d68be489b1e0a",
+        "android_client_info": {
+          "package_name": "com.phinnovation.lab_coffee"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "386203044031-06ro9pqcb1du07d8i6a87etgm16kn6nc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.phinnovation.lab_coffee",
+            "certificate_hash": "e3ebb9611a1d603478b0acb31c610c6f8a1a6782"
+          }
+        },
+        {
+          "client_id": "386203044031-kqkas2bl3kmcjh3705n6mv68v7hf40u6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC27lv39BNl5g0gvkMelzr-yD5kLzr-k8k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "386203044031-kqkas2bl3kmcjh3705n6mv68v7hf40u6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

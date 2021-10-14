@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>386203044031-vbpnmmid4lh58qchr2t1u789opkkcgam.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.386203044031-vbpnmmid4lh58qchr2t1u789opkkcgam</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>386203044031-06ro9pqcb1du07d8i6a87etgm16kn6nc.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCh8Ktxl4LgxGmLaKjG4jfjbkpSGUllT-w</string>
+	<key>GCM_SENDER_ID</key>
+	<string>386203044031</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.phinnovation.labCoffee</string>
+	<key>PROJECT_ID</key>
+	<string>lab-coffee-and-drinks</string>
+	<key>STORAGE_BUCKET</key>
+	<string>lab-coffee-and-drinks.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:386203044031:ios:47d4e39afd345e4d9b1e0a</string>
+</dict>
+</plist>
