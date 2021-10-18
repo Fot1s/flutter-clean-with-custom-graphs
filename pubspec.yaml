@@ -37,7 +37,6 @@ dependencies:
   injectable:
 
   auto_route:           #Stacked Navigation services needs auto_route
-  stacked_services:
 
   firebase_core: ^1.6.0
   firebase_analytics: ^8.3.2
