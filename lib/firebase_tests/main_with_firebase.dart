@@ -6,8 +6,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
 
-import '../presentation/painters/line_chart_painter.dart';
-
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -61,11 +59,6 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: CustomPaint(
-        painter: const LineChartPainter(startSecond: 0, endSecond: 24*60, padding: 10, graphBgColor: Colors.grey, chartPoints: []),
-        child: Container(height: 300,),
-      ),
-
     );
   }
 }
