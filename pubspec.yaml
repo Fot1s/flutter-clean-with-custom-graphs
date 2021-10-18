@@ -30,7 +30,14 @@ dependencies:
   flutter:
     sdk: flutter
 
-  path_provider: ^2.0.5
+  path_provider: ^2.0.5 #Used to find local directory on mobile or folder in web
+
+  stacked: ^2.2.7       #Stacked MVVM
+  get_it:
+  injectable:
+
+  auto_route:           #Stacked Navigation services needs auto_route
+  stacked_services:
 
   firebase_core: ^1.6.0
   firebase_analytics: ^8.3.2
@@ -46,6 +53,10 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+  injectable_generator:
+  build_runner:
+  auto_route_generator:
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
