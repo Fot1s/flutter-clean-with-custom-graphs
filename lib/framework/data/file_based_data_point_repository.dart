@@ -10,11 +10,11 @@ import 'package:lab_coffee/core/domain/data_point.dart';
 /// Note: This class has no direct dependencies on any Flutter dependencies.
 /// Instead, the `getDirectory` method should be injected. This allows for
 /// testing.
-class FileStorage implements DataPointRepository {
+class FileBasedDataPointRepository implements DataPointRepository {
   final String tag;
   final Future<Directory> Function() getDirectory;
 
-  const FileStorage(
+  const FileBasedDataPointRepository(
       this.tag,
       this.getDirectory,
       );
