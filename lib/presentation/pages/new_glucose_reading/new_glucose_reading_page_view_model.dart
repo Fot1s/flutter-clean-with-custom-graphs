@@ -44,7 +44,9 @@ class NewGlucoseReadingPageViewModel extends StreamViewModel {
 
   stopReadingGlucoseLevels() {
     _provider.stopReading() ;
-    //_repository.saveDataPoints(_glucoseData) ;
+    print("saving") ;
+    _repository.saveDataPoints(_glucoseData) ;
+    print("saved: ${_glucoseData.length}") ;
   }
 
   @override
