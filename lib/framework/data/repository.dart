@@ -3,7 +3,6 @@ import 'dart:core';
 
 import 'package:lab_coffee/core/data/data_point_repository.dart';
 import 'package:lab_coffee/core/domain/data_point.dart';
-import 'package:lab_coffee/framework/data/web_mock_repository.dart';
 
 /// A class that glues together our local file storage and web storage. It has a
 /// clear responsibility: Load DataPoints and Persist DataPoints.
@@ -13,7 +12,7 @@ class Repository implements DataPointRepository {
 
   const Repository({
     required this.localStorage,
-    this.webStorage = const WebMockRepository(),
+    required this.webStorage,
   });
 
   /// Loads todos first from File storage. If they don't exist or encounter an
