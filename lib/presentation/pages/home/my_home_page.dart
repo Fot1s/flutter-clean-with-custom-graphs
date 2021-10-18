@@ -24,7 +24,7 @@ class MyHomePage extends StatelessWidget {
           children: [
             const HeaderTitle("Today"),
             ScoreCard(averageGlucose: "${viewModel.averageGlucose.toInt()}"),
-            GlucoseActivityCard("Glucose Activity", "Avg ${viewModel.averageGlucose} mg/dl", viewModel.glucoseData!, true),
+            GlucoseActivityCard("Glucose Activity", "Avg ${viewModel.averageGlucose} mg/dl", viewModel.glucoseData!, true, 0, 24*60*60),
           ],
         ) : const Center(child:CircularProgressIndicator()),
         floatingActionButton: FloatingActionButton(

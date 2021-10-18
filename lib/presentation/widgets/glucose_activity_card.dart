@@ -9,16 +9,16 @@ class GlucoseActivityCard extends StatelessWidget {
   final String title ;
   final String subTitle ;
   final bool showFooter ;
-  final int startMinute ;
-  final int endMin ;
+  final int startSecond ;
+  final int endSecond ;
 
   const GlucoseActivityCard(
       this.title,
       this.subTitle,
       this.glucoseLevelsDataPoints,
       this.showFooter,
-      this.startMinute,
-      this.endMin,
+      this.startSecond,
+      this.endSecond,
       {
         Key? key
       }
@@ -53,7 +53,7 @@ class GlucoseActivityCard extends StatelessWidget {
                 ],
               ),
               SizedBox(height: Constants.defaultPadding.top),
-              LineChart(startSecond: startMinute, endSecond: endMin, dataPoints: glucoseLevelsDataPoints, padding: 0, height: 150,),
+              LineChart(startSecond: startSecond, endSecond: endSecond, dataPoints: glucoseLevelsDataPoints, padding: 0, height: 150,),
               SizedBox(height: Constants.defaultPadding.top),
               _buildFooter(context, showFooter),
             ],

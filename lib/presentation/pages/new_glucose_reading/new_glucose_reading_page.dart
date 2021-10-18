@@ -24,7 +24,7 @@ class NewGlucoseReadingPage extends StatelessWidget {
           stream: viewModel.stream,
           builder: (BuildContext context, AsyncSnapshot<List<DataPoint>> snapshot) {
             return snapshot.data?.isNotEmpty == true ?
-              GlucoseActivityCard(viewModel.title, "Avg ${viewModel.averageReading.toStringAsFixed(2)} mg/dl", snapshot.data, false, startTime: viewModel.startTime, endTime: viewModel.endTime)
+              GlucoseActivityCard(viewModel.title, "Avg ${viewModel.averageReading.toStringAsFixed(2)} mg/dl", snapshot.data, false, viewModel.startTime, viewModel.endTime)
               :
               const Center(child:CircularProgressIndicator()) ;
           },

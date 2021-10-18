@@ -23,8 +23,9 @@ class NewGlucoseReadingPageViewModel extends StreamViewModel {
   StreamController<List<DataPoint>> dataPointStreamController = StreamController.broadcast();
 
   startReadingGlucoseLevels() {
-      startTime = DateTime.now() .millisecondsSinceEpoch ;
-      endTime = startTime + const Duration(seconds: 60).inMilliseconds ;
+    var now = DateTime.now() ;
+      startTime = now.hour*60*60 + now.minute*60 + now.second ;
+      endTime = startTime + 60 ;
       _glucoseData.clear() ;
       //4 times per sec for 60 sec
       _provider.startReading(250, 240).forEach((element) async {
@@ -43,7 +44,7 @@ class NewGlucoseReadingPageViewModel extends StreamViewModel {
 
   stopReadingGlucoseLevels() {
     _provider.stopReading() ;
-    _repository.saveDataPoints(_glucoseData) ;
+    //_repository.saveDataPoints(_glucoseData) ;
   }
 
   @override
