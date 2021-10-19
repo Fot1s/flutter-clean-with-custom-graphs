@@ -10,31 +10,35 @@ class MyHomePageViewModel extends BaseViewModel {
   final String _title = 'Home View';
   final DataPointRepository _repository = serviceLocator<DataPointRepository>() ;
 
+  final List<DataPoint> glucoseData = [];
+
   String get title => _title;
-  List<DataPoint>? glucoseData ;
 
   double get averageGlucose {
-    var glucose = glucoseData == null
-        ? 0
-        : glucoseData!.length == 1
-          ? glucoseData!.first.value
-          : glucoseData!.map((e) => e.value).reduce((value, element) => value + element) / glucoseData!.length ;
+    var glucose = glucoseData.length == 1
+          ? glucoseData.first.value
+          : glucoseData.map((e) => e.value).reduce((value, element) => value + element) / glucoseData.length ;
     return glucose * 18 ;//convert to mg/dl
   }
 
   void initialise() async {
-    glucoseData = await _loadGlucoseData() ;
-    notifyListeners() ;
+    _loadGlucoseData().then((value) {
+      glucoseData.addAll(value) ;
+      notifyListeners() ;
+    }) ;
   }
 
   void reloadGlucoseData() async {
-    glucoseData = null ;
+    glucoseData.clear() ;
     notifyListeners() ;
-    glucoseData = await _loadGlucoseData() ;
-    notifyListeners() ;
+
+    _loadGlucoseData().then((value) {
+      glucoseData.addAll(value) ;
+      notifyListeners() ;
+    }) ;
   }
 
-  Future<List<DataPoint>>? _loadGlucoseData()  {
+  Future<List<DataPoint>> _loadGlucoseData()  {
     return _repository.loadDataPoints() ;
   }
 
