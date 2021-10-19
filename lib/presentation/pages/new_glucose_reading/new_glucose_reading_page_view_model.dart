@@ -12,15 +12,19 @@ class NewGlucoseReadingPageViewModel extends StreamViewModel {
   final GlucoseLevelServiceProvider _provider = serviceLocator<GlucoseLevelServiceProvider>() ;
   final DataPointRepository _repository = serviceLocator<DataPointRepository>() ;
 
-  String get title => _title;
-
-  double averageReading = 0 ;
-  int startTime = DateTime.now().millisecondsSinceEpoch ;
-  int endTime = DateTime.now().millisecondsSinceEpoch ;
-
   final List<DataPoint> _glucoseData = [] ;
+  final StreamController<List<DataPoint>> _dataPointStreamController = StreamController.broadcast();
 
-  StreamController<List<DataPoint>> dataPointStreamController = StreamController.broadcast();
+  String get title => _title;
+  int startTime = 0 ;
+  int endTime = 0 ;
+
+  double get averageReading {
+    var glucose = _glucoseData.length == 1
+        ? _glucoseData.first.value
+        : _glucoseData.map((e) => e.value).reduce((value, element) => value + element) / _glucoseData.length ;
+    return glucose * 18 ;//convert to mg/dl
+  }
 
   startReadingGlucoseLevels() {
     var now = DateTime.now() ;
@@ -30,15 +34,7 @@ class NewGlucoseReadingPageViewModel extends StreamViewModel {
       //4 times per sec for 60 sec
       _provider.startReading(250, 240).forEach((element) async {
         _glucoseData.add(element) ;
-
-        if (_glucoseData.length ==1) {
-          averageReading = _glucoseData[0].value ;
-        } else {
-          averageReading = _glucoseData.map((e) => e.value).reduce((value, element) => value + element) / _glucoseData.length * 18 ;
-        }
-
-        dataPointStreamController.add(_glucoseData) ;
-        //notifyListeners does not work inside foreach / async switch to StreamViewModel
+        _dataPointStreamController.add(_glucoseData) ;
       }) ;
   }
 
@@ -48,5 +44,11 @@ class NewGlucoseReadingPageViewModel extends StreamViewModel {
   }
 
   @override
-  Stream<List<DataPoint>> get stream => dataPointStreamController.stream ;
+  Stream<List<DataPoint>> get stream => _dataPointStreamController.stream ;
+
+  @override
+  void dispose() {
+    _dataPointStreamController.close() ;
+    super.dispose();
+  }
 }
