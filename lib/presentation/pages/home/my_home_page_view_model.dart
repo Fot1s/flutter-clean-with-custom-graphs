@@ -11,8 +11,16 @@ class MyHomePageViewModel extends BaseViewModel {
   final DataPointRepository _repository = serviceLocator<DataPointRepository>() ;
 
   String get title => _title;
-  double averageGlucose =0 ;
   List<DataPoint>? glucoseData ;
+
+  double get averageGlucose {
+    var glucose = glucoseData == null
+        ? 0
+        : glucoseData!.length == 1
+          ? glucoseData!.first.value
+          : glucoseData!.map((e) => e.value).reduce((value, element) => value + element) / glucoseData!.length ;
+    return glucose * 18 ;//convert to mg/dl
+  }
 
   void initialise() async {
     glucoseData = await _loadGlucoseData() ;
