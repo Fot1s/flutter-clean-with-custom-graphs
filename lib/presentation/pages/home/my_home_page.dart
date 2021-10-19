@@ -19,12 +19,12 @@ class MyHomePage extends StatelessWidget {
         appBar: AppBar(
           title: Text(viewModel.title),
         ),
-        body: viewModel.glucoseData != null ?
+        body: viewModel.glucoseData.isNotEmpty ?
           ListView(
           children: [
             const HeaderTitle("Today"),
             ScoreCard(averageGlucose: "${viewModel.averageGlucose.toInt()}"),
-            GlucoseActivityCard("Glucose Activity", "Avg ${viewModel.averageGlucose} mg/dl", viewModel.glucoseData!, true, 0, 24*60*60),
+            GlucoseActivityCard("Glucose Activity", "Avg ${viewModel.averageGlucose} mg/dl", viewModel.glucoseData, true, 0, 24*60*60),
           ],
         ) : const Center(child:CircularProgressIndicator()),
         floatingActionButton: FloatingActionButton(
