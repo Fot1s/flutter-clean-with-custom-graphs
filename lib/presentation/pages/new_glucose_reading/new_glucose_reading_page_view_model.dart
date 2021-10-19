@@ -13,14 +13,18 @@ class NewGlucoseReadingPageViewModel extends StreamViewModel {
   final DataPointRepository _repository = serviceLocator<DataPointRepository>() ;
 
   final List<DataPoint> _glucoseData = [] ;
-  final StreamController<List<DataPoint>> _dataPointStreamController = StreamController.broadcast();
+  final StreamController<List<DataPoint>> _dataPointStreamController = StreamController();
+
+  List<DataPoint> get glucoseData => _glucoseData;
 
   String get title => _title;
   int startTime = 0 ;
   int endTime = 0 ;
 
   double get averageReading {
-    var glucose = _glucoseData.length == 1
+    var glucose = _glucoseData.isEmpty
+      ? 0
+      : _glucoseData.length == 1
         ? _glucoseData.first.value
         : _glucoseData.map((e) => e.value).reduce((value, element) => value + element) / _glucoseData.length ;
     return glucose * 18 ;//convert to mg/dl

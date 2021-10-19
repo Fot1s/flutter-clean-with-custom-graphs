@@ -15,9 +15,11 @@ class MyHomePageViewModel extends BaseViewModel {
   String get title => _title;
 
   double get averageGlucose {
-    var glucose = glucoseData.length == 1
-          ? glucoseData.first.value
-          : glucoseData.map((e) => e.value).reduce((value, element) => value + element) / glucoseData.length ;
+    var glucose = glucoseData.isEmpty
+      ? 0
+      : glucoseData.length == 1
+        ? glucoseData.first.value
+        : glucoseData.map((e) => e.value).reduce((value, element) => value + element) / glucoseData.length ;
     return glucose * 18 ;//convert to mg/dl
   }
 
