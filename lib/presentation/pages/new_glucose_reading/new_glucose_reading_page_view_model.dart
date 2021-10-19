@@ -6,18 +6,17 @@ import 'package:lab_coffee/core/services/glucose_level_service_provider.dart';
 import 'package:lab_coffee/presentation/app/service_locator.dart';
 import 'package:stacked/stacked.dart';
 
-class NewGlucoseReadingPageViewModel extends StreamViewModel {
+class NewGlucoseReadingPageViewModel extends BaseViewModel {
   final String _title = 'New Glucose Reading';
 
   final GlucoseLevelServiceProvider _provider = serviceLocator<GlucoseLevelServiceProvider>() ;
   final DataPointRepository _repository = serviceLocator<DataPointRepository>() ;
 
   final List<DataPoint> _glucoseData = [] ;
-  final StreamController<List<DataPoint>> _dataPointStreamController = StreamController();
 
   List<DataPoint> get glucoseData => _glucoseData;
-
   String get title => _title;
+
   int startTime = 0 ;
   int endTime = 0 ;
 
@@ -38,21 +37,12 @@ class NewGlucoseReadingPageViewModel extends StreamViewModel {
       //4 times per sec for 60 sec
       _provider.startReading(250, 240).forEach((element) async {
         _glucoseData.add(element) ;
-        _dataPointStreamController.add(_glucoseData) ;
+        notifyListeners() ;
       }) ;
   }
 
   stopReadingGlucoseLevels() {
     _provider.stopReading() ;
     _repository.saveDataPoints(_glucoseData) ;
-  }
-
-  @override
-  Stream<List<DataPoint>> get stream => _dataPointStreamController.stream ;
-
-  @override
-  void dispose() {
-    _dataPointStreamController.close() ;
-    super.dispose();
   }
 }
