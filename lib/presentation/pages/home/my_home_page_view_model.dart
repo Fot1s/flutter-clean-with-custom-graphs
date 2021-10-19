@@ -23,14 +23,14 @@ class MyHomePageViewModel extends BaseViewModel {
     return glucose * 18 ;//convert to mg/dl
   }
 
-  void initialise() async {
+  void initialise() {
     _loadGlucoseData().then((value) {
       glucoseData.addAll(value) ;
       notifyListeners() ;
     }) ;
   }
 
-  void reloadGlucoseData() async {
+  void reloadGlucoseData() {
     glucoseData.clear() ;
     notifyListeners() ;
 
@@ -44,7 +44,7 @@ class MyHomePageViewModel extends BaseViewModel {
     return _repository.loadDataPoints() ;
   }
 
-  Future navigateToNewGlucoseReadingPage(BuildContext context) async {
+  Future navigateToNewGlucoseReadingPage(BuildContext context) {
     return AutoRouter.of(context).push(const NewGlucoseReadingRoute()) ;
   }
 }
