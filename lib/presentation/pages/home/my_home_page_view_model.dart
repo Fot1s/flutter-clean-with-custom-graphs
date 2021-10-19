@@ -39,6 +39,6 @@ class MyHomePageViewModel extends BaseViewModel {
   }
 
   Future navigateToNewGlucoseReadingPage(BuildContext context) async {
-    return AutoRouter.of(context).push(const NewGlucoseReading()) ;
+    return AutoRouter.of(context).push(const NewGlucoseReadingRoute()) ;
   }
 }

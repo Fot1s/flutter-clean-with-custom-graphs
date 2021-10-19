@@ -16,11 +16,11 @@ class AppRouter extends _i3.RootStackRouter {
 
   @override
   final Map<String, _i3.PageFactory> pagesMap = {
-    Home.name: (routeData) {
+    MyHomeRoute.name: (routeData) {
       return _i3.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i1.MyHomePage());
     },
-    NewGlucoseReading.name: (routeData) {
+    NewGlucoseReadingRoute.name: (routeData) {
       return _i3.MaterialPageX<dynamic>(
           routeData: routeData, child: const _i2.NewGlucoseReadingPage());
     }
@@ -28,22 +28,23 @@ class AppRouter extends _i3.RootStackRouter {
 
   @override
   List<_i3.RouteConfig> get routes => [
-        _i3.RouteConfig(Home.name, path: '/'),
-        _i3.RouteConfig(NewGlucoseReading.name,
+        _i3.RouteConfig(MyHomeRoute.name, path: '/'),
+        _i3.RouteConfig(NewGlucoseReadingRoute.name,
             path: '/new-glucose-reading-page')
       ];
 }
 
 /// generated route for [_i1.MyHomePage]
-class Home extends _i3.PageRouteInfo<void> {
-  const Home() : super(name, path: '/');
+class MyHomeRoute extends _i3.PageRouteInfo<void> {
+  const MyHomeRoute() : super(name, path: '/');
 
-  static const String name = 'Home';
+  static const String name = 'MyHomeRoute';
 }
 
 /// generated route for [_i2.NewGlucoseReadingPage]
-class NewGlucoseReading extends _i3.PageRouteInfo<void> {
-  const NewGlucoseReading() : super(name, path: '/new-glucose-reading-page');
+class NewGlucoseReadingRoute extends _i3.PageRouteInfo<void> {
+  const NewGlucoseReadingRoute()
+      : super(name, path: '/new-glucose-reading-page');
 
-  static const String name = 'NewGlucoseReading';
+  static const String name = 'NewGlucoseReadingRoute';
 }

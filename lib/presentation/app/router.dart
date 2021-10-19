@@ -5,8 +5,8 @@ import 'package:lab_coffee/presentation/pages/new_glucose_reading/new_glucose_re
 @MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
-    AutoRoute(page: MyHomePage, initial: true, name: "home"),
-    AutoRoute(page: NewGlucoseReadingPage, name: "newGlucoseReading"),
+    AutoRoute(page: MyHomePage, initial: true),
+    AutoRoute(page: NewGlucoseReadingPage),
   ],
 )
 class $AppRouter {
