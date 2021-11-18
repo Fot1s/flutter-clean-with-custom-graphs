@@ -1,4 +1,7 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:lab_coffee/presentation/app/router.gr.dart';
+import 'package:lab_coffee/presentation/pages/isolates_testing/isolates_testing_page.dart';
 import 'package:stacked/stacked.dart';
 
 import 'my_home_page_view_model.dart';
@@ -25,6 +28,9 @@ class MyHomePage extends StatelessWidget {
             const HeaderTitle("Today"),
             ScoreCard(averageGlucose: "${viewModel.averageGlucose.toInt()}"),
             GlucoseActivityCard("Glucose Activity", "Avg ${viewModel.averageGlucose} mg/dl", viewModel.glucoseData, true, 0, 24*60*60),
+            MaterialButton(onPressed: () {
+             AutoRouter.of(context).push(const IsolatesTestingRoute()) ;
+            }, child: const Text("Isolates testing"),)
           ],
         ) : const Center(child:CircularProgressIndicator()),
         floatingActionButton: FloatingActionButton(

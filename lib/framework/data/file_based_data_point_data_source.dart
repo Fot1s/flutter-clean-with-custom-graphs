@@ -2,25 +2,26 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:lab_coffee/core/data/data_point_data_source.dart';
 import 'package:lab_coffee/core/data/data_point_repository.dart';
-import 'package:lab_coffee/core/domain/data_point.dart';
+import 'package:lab_coffee/core/domain/entities/data_point.dart';
 
 /// Loads and saves a List of DataPoints using a text file stored on the device.
 ///
 /// Note: This class has no direct dependencies on any Flutter dependencies.
 /// Instead, the `getDirectory` method should be injected. This allows for
 /// testing.
-class FileBasedDataPointRepository implements DataPointRepository {
+class FileBasedDataPointDataSource implements DataPointDataSource {
   final String tag;
   final Future<Directory> Function() getDirectory;
 
-  const FileBasedDataPointRepository(
+  const FileBasedDataPointDataSource(
       this.tag,
       this.getDirectory,
       );
 
   @override
-  Future<List<DataPoint>> loadDataPoints() async {
+  Future<List<DataPoint>> load() async {
     final file = await _getLocalFile();
     final string = await file.readAsString();
     final json = const JsonDecoder().convert(string);
@@ -31,7 +32,7 @@ class FileBasedDataPointRepository implements DataPointRepository {
   }
 
   @override
-  Future<File> saveDataPoints(List<DataPoint> dataPoints) async {
+  Future<File> save(List<DataPoint> dataPoints) async {
     final file = await _getLocalFile();
 
     return file.writeAsString(const JsonEncoder().convert({

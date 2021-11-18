@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:lab_coffee/core/data/data_point_repository.dart';
-import 'package:lab_coffee/core/domain/data_point.dart';
+import 'package:lab_coffee/core/data/data_point_data_source.dart';
+import 'package:lab_coffee/core/domain/entities/data_point.dart';
 
 /// A class that is meant to represent a Client that would be used to call a Web
 /// Service. It is responsible for fetching and persisting DataPoints to and from the
@@ -9,15 +9,15 @@ import 'package:lab_coffee/core/domain/data_point.dart';
 ///
 /// Since we're trying to keep this example simple, it doesn't communicate with
 /// a real server but simply emulates the functionality.
-class WebMockRepository implements DataPointRepository {
+class WebMockDataSource implements DataPointDataSource{
   final Duration delay;
 
-  const WebMockRepository({this.delay = const Duration(milliseconds: 3000)});
+  const WebMockDataSource({this.delay = const Duration(milliseconds: 3000)});
 
   /// Mock that "fetches" some Todos from a "web service" after a short delay
   /// The blood glucose concentration is measured in mmol/L (1 mmol/L is equivalent to 18 mg/dL)
   @override
-  Future<List<DataPoint>> loadDataPoints() async {
+  Future<List<DataPoint>> load() async {
     return Future.delayed(
         delay,
             () => [
@@ -68,7 +68,7 @@ class WebMockRepository implements DataPointRepository {
   /// Mock that returns true or false for success or failure. In this case,
   /// it will "Always Succeed"
   @override
-  Future<bool> saveDataPoints(List<DataPoint> dataPoints) async {
+  Future<bool> save(List<DataPoint> dataPoints) async {
     return Future.value(true);
   }
 }

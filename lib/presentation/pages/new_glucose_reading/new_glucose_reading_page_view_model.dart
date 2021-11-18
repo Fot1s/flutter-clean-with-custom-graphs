@@ -1,9 +1,7 @@
-import 'dart:async';
-
 import 'package:lab_coffee/core/data/data_point_repository.dart';
-import 'package:lab_coffee/core/domain/data_point.dart';
+import 'package:lab_coffee/core/domain/entities/data_point.dart';
 import 'package:lab_coffee/core/services/glucose_level_service_provider.dart';
-import 'package:lab_coffee/presentation/app/service_locator.dart';
+import 'package:lab_coffee/service_locator.dart';
 import 'package:stacked/stacked.dart';
 
 class NewGlucoseReadingPageViewModel extends BaseViewModel {

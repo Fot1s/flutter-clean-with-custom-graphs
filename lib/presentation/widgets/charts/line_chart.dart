@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lab_coffee/core/domain/data_point.dart';
+import 'package:lab_coffee/core/domain/entities/data_point.dart';
 import 'package:lab_coffee/presentation/painters/line_chart_painter.dart';
 
 class LineChart extends StatelessWidget {

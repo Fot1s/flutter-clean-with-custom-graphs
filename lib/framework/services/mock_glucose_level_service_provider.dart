@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:lab_coffee/core/domain/data_point.dart';
+import 'package:lab_coffee/core/domain/entities/data_point.dart';
 import 'package:lab_coffee/core/services/glucose_level_service_provider.dart';
 
 class MockGlucoseLevelServiceProvider implements GlucoseLevelServiceProvider {

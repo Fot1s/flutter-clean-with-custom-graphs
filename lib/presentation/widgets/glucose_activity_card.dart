@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lab_coffee/core/domain/data_point.dart';
+import 'package:lab_coffee/core/domain/entities/data_point.dart';
 import 'package:lab_coffee/presentation/theme/constants.dart';
 
 import 'charts/line_chart.dart';

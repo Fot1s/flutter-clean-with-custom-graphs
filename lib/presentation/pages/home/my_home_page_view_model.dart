@@ -1,14 +1,15 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:lab_coffee/core/data/data_point_repository.dart';
-import 'package:lab_coffee/core/domain/data_point.dart';
-import 'package:lab_coffee/presentation/app/service_locator.dart';
+import 'package:lab_coffee/core/domain/entities/data_point.dart';
+import 'package:lab_coffee/core/domain/interactors/get_glucose_levels.dart';
+import 'package:lab_coffee/service_locator.dart';
 import 'package:lab_coffee/presentation/app/router.gr.dart';
 import 'package:stacked/stacked.dart';
 
 class MyHomePageViewModel extends BaseViewModel {
   final String _title = 'Home View';
-  final DataPointRepository _repository = serviceLocator<DataPointRepository>() ;
+//  final DataPointRepository _repository = serviceLocator<DataPointRepository>() ;
+  final GetGlucoseLevels _getGlucoseLevels = serviceLocator<GetGlucoseLevels>() ;
 
   final List<DataPoint> glucoseData = [];
 
@@ -41,7 +42,7 @@ class MyHomePageViewModel extends BaseViewModel {
   }
 
   Future<List<DataPoint>> _loadGlucoseData()  {
-    return _repository.loadDataPoints() ;
+    return _getGlucoseLevels() ;
   }
 
   Future navigateToNewGlucoseReadingPage(BuildContext context) {

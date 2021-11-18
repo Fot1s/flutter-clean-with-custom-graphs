@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lab_coffee/presentation/theme/theme_data.dart';
 
 import 'router.gr.dart';
-import 'service_locator.dart';
+import '../../service_locator.dart';
 
 void main() {
   setupServiceLocator();

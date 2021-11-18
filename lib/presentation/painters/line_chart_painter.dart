@@ -97,6 +97,8 @@ class LineChartPainter extends CustomPainter {
       if (xValue > lastX) { //quick fix to not draw points out of sequence - will not happen with correct timestamps in current locale
         _normalizedPoints.add(Offset(_padding + roundCapFix + xValue, _padding + roundCapFix + yValue));
         lastX = xValue ;
+      } else {
+        debugPrint("Skipped value: $xValue last is: $lastX") ;
       }
     }
 
