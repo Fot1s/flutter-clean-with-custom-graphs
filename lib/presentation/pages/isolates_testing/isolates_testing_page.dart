@@ -17,7 +17,7 @@ class IsolatesTestingPage extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    CircularProgressIndicator(),
+                    viewModel.isRunning ? const CircularProgressIndicator():Container(),
                     MaterialButton(onPressed: () => viewModel.toggleTesting(),
                     child: Text(viewModel.startStopTitle),)
                   ],
