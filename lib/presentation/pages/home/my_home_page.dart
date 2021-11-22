@@ -27,7 +27,7 @@ class MyHomePage extends StatelessWidget {
           children: [
             const HeaderTitle("Today"),
             ScoreCard(averageGlucose: "${viewModel.averageGlucose.toInt()}"),
-            GlucoseActivityCard("Glucose Activity", "Avg ${viewModel.averageGlucose} mg/dl", viewModel.glucoseData, true, 0, 24*60*60),
+            GlucoseActivityCard("Glucose Activity", "Avg ${viewModel.averageGlucose.toStringAsFixed(2)} mg/dl", viewModel.glucoseData, true, 0, 24*60*60),
             MaterialButton(onPressed: () {
              AutoRouter.of(context).push(const IsolatesTestingRoute()) ;
             }, child: const Text("Isolates testing"),)
